@@ -166,6 +166,8 @@ header {
     overflow: hidden;
     min-height: 100vh;
     padding: 40px 0;
+    background: url('../images/gallery-1.jpg') no-repeat;
+    background-size: cover;
 }
 
 header::before {
@@ -747,6 +749,9 @@ header .container {
         display: flex;
         align-items: center;
     }
+    .colapseBody {
+        padding: 10px;
+    }
 }
 
 /*==========================||---------------------------||========================*/
@@ -818,6 +823,25 @@ header .container {
     }
     
     .stages .col-12:last-of-type .stage {
+        margin: 0;
+    }
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    .stage span {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .stages .col-12 {
+        padding: 0 5px;
+    }
+    
+    .stage h3 {
+        font-size: 13px;
+    }
+
+    .stage {
         margin: 0;
     }
 }
@@ -1032,6 +1056,26 @@ header .container {
     }
 }
 
+@media (min-width:768px) and (max-width:1024px) {
+    .price {
+        border-width: 5px;
+        padding: 20px 10px 10px;
+    }
+    
+    .pricesData {
+        padding-top: 25px;
+    }
+    
+    .priceFooter {
+        margin: 0 -15px -15px;
+        padding-bottom: 20px;
+    }
+    
+    .recomended {
+        top: -15px;
+    }
+}
+
 /*==========================||---------------------------||========================*/
 /*==========================||        Main Gallery       ||========================*/
 /*==========================||---------------------------||========================*/
@@ -1188,6 +1232,37 @@ header .container {
     }    
 }
 
+@media (min-width:768px) and (max-width:1024px) {
+    .team .col-12 {
+        padding: 0 2px;
+    }
+    
+    .member {
+        border-width: 5px;
+        padding: 10px 5px;
+    }
+    
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .member h3 {
+        font-size: 15px;
+    }
+    
+    .member h5 {
+        font-size: 13px;
+    }
+    
+    .member > a {
+        font-size: 12px;
+    }
+    
+    .member>.link {
+        font-size: 11px;
+    }
+}
 
 /*==========================||---------------------------||========================*/
 /*==========================||           Contact         ||========================*/
@@ -1872,15 +1947,46 @@ footer h5 {
     margin-inline-end: 5px;
 }
 
-@media screen and (max-width:768px) {}
-
 /*==========================||---------------------------||========================*/
-/*==========================||        Internal Heade     ||========================*/
+/*==========================||              AR           ||========================*/
 /*==========================||---------------------------||========================*/
 
+.ar {
+    direction: rtl;
+    text-align: right;
+}
 
+.ar .mainGallery .owl-nav {
+    left: 10%;
+    right: auto;
+}
 
-@media screen and (max-width:768px) {}
+.ar .client img:last-of-type {
+    right: 0;
+    left: auto;
+}
+
+.ar .closeModal {
+    left: 0;
+    right: auto;
+}
+
+@media screen and (max-width:768px) {
+    .ar .bodyOverlay {
+        right: auto;
+        left: 15px;
+    }
+
+    .ar .bodyOverlay.show {
+        left:0;
+    }
+
+    .ar .navMenu {
+        left: 0;
+        right: auto;
+    }
+}
+
 /*==========================||---------------------------||========================*/
 /*==========================||          About Page       ||========================*/
 /*==========================||---------------------------||========================*/

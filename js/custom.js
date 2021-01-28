@@ -48,10 +48,6 @@
         }
     });
 
-    // Default Bacground
-    let defaultSrc = $('.owlHeader .item img').attr('src');
-    $('.owlHeader').parents('header').css( { 'background' : 'url('+ defaultSrc +')' , 'background-size': 'cover' });
-    
     // Preview Active Image As Bacground
     let ActiveSrc = $('.owlHeader .owl-item.active.center img').attr('src');
     $('.owlHeader').parents('header').css( { 'background' : 'url('+ ActiveSrc +')' , 'background-size': 'cover' });
@@ -147,6 +143,7 @@
 
     // Clients OWL 
     $('.owlClients').owlCarousel({
+        rtl: rtlVal ,
         margin: 20,
         autoplay: true,
         loop: true,
