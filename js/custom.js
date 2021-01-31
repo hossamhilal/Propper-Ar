@@ -16,27 +16,13 @@
         }, 200);
     });
 
-    // Add Fixed Nav
-    // $(window).on('scroll', function() {
-    //     let i = 0;
-    //     if ( i == 0 && $(window).scrollTop() > 1000 && $(window).width() > 992){
-    //         console.log('scrolllllllll')
-    //         $('header').addClass('fixedNav');
-    //         i++ ;
-    //     } else $('header').removeClass('fixedNav');
-    // });
-
+    // Fixed NavBar 
     window.onscroll = function() {
-        var topElement = document.getElementById('about') ,
+        var topElement = document.getElementById('features') ,
             Header = document.getElementsByTagName('header') ,
             Top = topElement.offsetTop;
-
-        if (window.pageYOffset >= Top && window.innerWidth > 992 ) {
-            $(Header).addClass("fixedNav")
-        } else {
-            $(Header).removeClass("fixedNav");
-        }
-    };
+        window.pageYOffset >= Top + 200 && window.innerWidth > 992  ? $(Header).addClass("fixedNav") : $(Header).removeClass("fixedNav");
+    }
 
     // check If Rtl 
     var rtlVal = false;
