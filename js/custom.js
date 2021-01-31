@@ -1,37 +1,54 @@
 /*global $ */
-(function($) {
+(function ($) {
     "use strict";
 
-    // $(window).on('load', function(){
-    //     $('body').addClass('stopScroll');
-    //     $('.loader').fadeOut(500, function () {
-    //         $(this).remove();
-    //         $('body').removeClass('stopScroll');
-    //     }); 
-    // });
-
-    // OPEN SIDE  MENU 
-    $('.menuBtn').on('click', function(){
-        $(this).toggleClass('open');
-        $('.navMenu').toggleClass('open');
-        $('.bodyOverlay').toggleClass('show');  
-        setTimeout(function(){
-            $('body').toggleClass('stopScroll');
-        }, 200); 
+    $(window).on('load', function(){
+        $('body').addClass('stopScroll');
     });
 
+    // OPEN SIDE  MENU 
+    $('.menuBtn').on('click', function () {
+        $(this).toggleClass('open');
+        $('.navMenu').toggleClass('open');
+        $('.bodyOverlay').toggleClass('show');
+        setTimeout(function () {
+            $('body').toggleClass('stopScroll');
+        }, 200);
+    });
+
+    // Add Fixed Nav
+    // $(window).on('scroll', function() {
+    //     let i = 0;
+    //     if ( i == 0 && $(window).scrollTop() > 1000 && $(window).width() > 992){
+    //         console.log('scrolllllllll')
+    //         $('header').addClass('fixedNav');
+    //         i++ ;
+    //     } else $('header').removeClass('fixedNav');
+    // });
+
+    window.onscroll = function() {
+        var topElement = document.getElementById('about') ,
+            Header = document.getElementsByTagName('header') ,
+            Top = topElement.offsetTop;
+
+        if (window.pageYOffset >= Top && window.innerWidth > 992 ) {
+            $(Header).addClass("fixedNav")
+        } else {
+            $(Header).removeClass("fixedNav");
+        }
+    };
+
     // check If Rtl 
-    var rtlVal = false ;    
+    var rtlVal = false;
     $('body').hasClass('ar') ? rtlVal = true : rtlVal = false;
-    
+
     // Header OWL 
-    let owlHeader = $('.owlHeader');
-    owlHeader.owlCarousel({
-        rtl: rtlVal ,
+    $('.owlHeader').owlCarousel({
+        rtl: rtlVal,
         margin: 0,
         autoplay: true,
         loop: true,
-        center: true ,
+        center: true,
         nav: false,
         dots: false,
         navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
@@ -48,26 +65,15 @@
         }
     });
 
-    // Preview Active Image As Bacground
-    let ActiveSrc = $('.owlHeader .owl-item.active.center img').attr('src');
-    $('.owlHeader').parents('header').css( { 'background' : 'url('+ ActiveSrc +')' , 'background-size': 'cover' });
-
-    owlHeader.on('changed.owl.carousel',function(elem){
-        let current = elem.item.index;
-        let ActiveSrc = $(elem.target).find(".owl-item").eq(current).find('img').attr('src');
-        console.log('Image current is ' + ActiveSrc);
-        $('.owlHeader').parents('header').css( { 'background' : 'url('+ ActiveSrc +')' , 'background-size': 'cover' });
-    });
-
     // Gallery OWL 
     $('.owlGallery').owlCarousel({
-        rtl: rtlVal ,
+        rtl: rtlVal,
         margin: 0,
         autoplay: false,
         loop: false,
         nav: false,
         dots: true,
-        center : false ,
+        center: false,
         navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
         responsive: {
             0: {
@@ -87,24 +93,24 @@
 
     // Main Gallery OWL 
     $('.owlMainGallery').owlCarousel({
-        rtl: rtlVal ,
+        rtl: rtlVal,
         margin: 20,
         autoplay: true,
         loop: true,
         nav: true,
         dots: false,
-        center : false ,
-        autoplaySpeed : 2000,
-        autoplayTimeout : 2000,
-        smartSpeed: 2000 ,
-        navText: [$('.nextBtn'),$('.prevBtn')],
+        center: false,
+        autoplaySpeed: 2000,
+        autoplayTimeout: 2000,
+        smartSpeed: 2000,
+        navText: [$('.nextBtn'), $('.prevBtn')],
         responsive: {
             0: {
                 items: 1,
                 stagePadding: 40
             },
             600: {
-                items: 1 ,
+                items: 1,
                 stagePadding: 50
             },
             1000: {
@@ -117,16 +123,16 @@
 
     // Testimonials OWL 
     $('.owlTestimonial').owlCarousel({
-        rtl: rtlVal ,
+        rtl: rtlVal,
         margin: 0,
         autoplay: true,
         loop: false,
         nav: false,
         dots: true,
-        center : false ,
-        autoplaySpeed : 2000,
-        autoplayTimeout : 2000,
-        smartSpeed: 2000 ,
+        center: false,
+        autoplaySpeed: 2000,
+        autoplayTimeout: 2000,
+        smartSpeed: 2000,
         navText: ["<i class='icofont-thin-right'></i>", "<i class='icofont-thin-left'></i>"],
         responsive: {
             0: {
@@ -143,17 +149,17 @@
 
     // Clients OWL 
     $('.owlClients').owlCarousel({
-        rtl: rtlVal ,
+        rtl: rtlVal,
         margin: 20,
         autoplay: true,
         loop: true,
         nav: true,
         dots: false,
-        center : false ,
-        autoplaySpeed : 2000,
-        autoplayTimeout : 2000,
-        smartSpeed: 2000 ,
-        navText: [$('.next'),$('.prev')],
+        center: false,
+        autoplaySpeed: 2000,
+        autoplayTimeout: 2000,
+        smartSpeed: 2000,
+        navText: [$('.next'), $('.prev')],
         responsive: {
             0: {
                 items: 2
@@ -168,10 +174,10 @@
     });
 
     // Collapse 
-    $('.colapseHead').on('click' , function() {
+    $('.colapseHead').on('click', function () {
         let collapseBody = $(this).next('.colapseBody');
 
-        if( $(collapseBody).css('display') !== 'none'){
+        if ($(collapseBody).css('display') !== 'none') {
             $('.colapseBody').slideUp();
         } else {
             $('.colapseBody').slideUp();
@@ -179,44 +185,68 @@
         }
     });
 
-
-    // // Upload File 
-    // $('.uploadFile').on('change', function(e) {
-    //     let fileName = e.target.value.split( '\\' ).pop();
-    //     console.log(fileName);
-    //     let files = $(this).parent('.uploadBox').prev('.uploadedFiles');
-    //     files.append(
-    //         '<div class="file">' +
-    //             '<h3 class="fileName">' + fileName  + '</h3>' +
-    //             '<span class="deleteFile"> <i class="icofont-ui-delete"></i> </span>' +
-    //         '</div>'
-    //     );               
-    // });
-
-    // // Delete File
-    // $(document).on('click','.deleteFile' , function(){
-    //     $(this).parent('.file').remove();
-    // });
-
     // Tabs 
-    $('.tabsList a').on('click' , function(e){
+    $('.tabsList a').on('click', function (e) {
         e.preventDefault();
         $('.tabsList a').removeClass('active');
         $(this).addClass('active');
-        
-        var itemId = $(this).attr("href"); 
-        $('.tabContent').removeClass('show'); 
+
+        var itemId = $(this).attr("href");
+        $('.tabContent').removeClass('show');
         $(itemId).addClass('show');
     });
 
     // Back To Top 
-    $('.backToTop').click(function() {
+    $('.backToTop').click(function () {
         $("html, body").animate({ scrollTop: 0 }, 4000);
         return false;
     });
 
+    // Loader 
+    var width = 100,
+        perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
+        EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
+        time = parseInt((EstimatedTime / 1000) % 60) * 100;
+
+    // Loadbar Animation
+    $('.progress-bar').animate({
+        width: width + "%"
+    }, time);
+
+    // Percentage Increment Animation
+    var PercentageID = $('#precent'),
+        start = 0,
+        end = 100,
+        durataion = time;
+    animateValue(PercentageID, start, end, durataion);
+
+    function animateValue(id, start, end, duration) {
+        var range = end - start,
+            current = start,
+            increment = end > start ? 1 : -1,
+            stepTime = Math.abs(Math.floor(duration / range)),
+            obj = $(id);
+
+        var timer = setInterval(function () {
+            current += increment;
+            $(obj).text(current + "%");
+            if (current == end) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    // Fading Out Loadbar on Finised
+    setTimeout(function () {
+        $('.loader').fadeOut(300);
+        $('.loader').remove();
+        $('header').removeClass('animated');
+        $('body').removeClass('stopScroll');
+    }, time);
+
+
     // iniat WOW Js
-    // new WOW().init();
-   
+    new WOW().init();
+
 })(jQuery);
 
