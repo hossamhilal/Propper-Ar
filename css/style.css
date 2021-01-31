@@ -1164,7 +1164,7 @@ header .container {
     position: absolute;
     bottom: 30px;
     right: 10%;
-    width: 150px;
+    width: 80px;
 }
 
 @media screen and (max-width:768px) {
@@ -2017,6 +2017,7 @@ footer h5 {
 .ar .mainGallery .owl-nav {
     left: 10%;
     right: auto;
+    flex-direction: row;
 }
 
 .ar .client img:last-of-type {
