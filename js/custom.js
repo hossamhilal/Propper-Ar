@@ -2,6 +2,7 @@
 (function ($) {
     "use strict";
 
+    // remove scrollbar when loading 
     $(window).on('load', function(){
         $('body').addClass('stopScroll');
     });
