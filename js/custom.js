@@ -17,6 +17,16 @@
         }, 200);
     });
 
+    // Scroll Menu
+    $('.headerNav a').on('click', function(e) {
+        e.preventDefault();
+        $('.headerNav li').removeClass('active');    
+        $(this).parent().addClass('active');
+        $('html, body').animate({ 
+            scrollTop: $($(this).attr('href')).offset().top - 100
+        }, 1200, 'linear');
+    });
+
     // Fixed NavBar 
     window.onscroll = function() {
         var topElement = document.getElementById('features') ,

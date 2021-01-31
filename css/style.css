@@ -276,7 +276,8 @@ header .container {
     width: 100%;
 }
 
-.navMenu a {
+.navMenu a , 
+.navMenu a:visited {
     font-size: 14px;
     color: #fff;
     font-weight: bold;
